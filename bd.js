@@ -12,7 +12,12 @@ const pool=mysql.createPool({
 pool.query=util.promisify(pool.query);
 console.log("Conexion con base de datos");
 module.exports=pool;*/
-
+console.log({
+    host:process.env.DB_HOST,
+    user:process.env.DB_USER,
+    password:process.env.DB_PASSWORD,
+    database:process.env.DB_NAME,
+    port:process.env.DB_PORT})
 const knex=require('knex')({
     client:"mysql",
     connection:{
