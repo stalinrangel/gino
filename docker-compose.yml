@@ -7,7 +7,7 @@ services:
       - MYSQL_ROOT_PASSWORD=$DB_PASSWORD
       - MYSQL_DATABASE=$DB_NAME
     ports:
-      - $DB_PORT:$DB_PORT
+      - 3306:3306
   app:
     build: .
     depends_on:
@@ -15,5 +15,5 @@ services:
     links:
       - mysqldb
     ports:
-      - $PORT:$PORT
+      - 3000:3000
     
