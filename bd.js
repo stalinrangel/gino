@@ -8,10 +8,20 @@ const pool=mysql.createPool({
     password:'',
     database:'nodemysql'
 })
+DB_HOST="mysqldb"
+DB_USER="root"
+DB_PASSWORD="12345"
+DB_NAME="gino"
+DB_PORT="3306"
+SECRET_KEY="gino123"
+
+PORT="3000"
 
 pool.query=util.promisify(pool.query);
 console.log("Conexion con base de datos");
 module.exports=pool;*/
+
+
 console.log({
     host:process.env.DB_HOST,
     user:process.env.DB_USER,
