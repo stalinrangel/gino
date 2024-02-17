@@ -36,6 +36,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+
+// Servir los archivos estáticos desde la carpeta "dist"
+app.use(express.static(path.join(__dirname, 'tu_proyecto_angular/dist')));
+
+// Manejar todas las demás rutas y devolver el archivo "index.html"
+app.get('', (req, res) => {
+  res.sendFile(path.join(__dirname, 'tu_proyecto_angular/dist/index.html'));
+});
+
+
 //Routes
 const authRoutes = require('./routes/authRoute');
 app.use('/auth', authRoutes);
