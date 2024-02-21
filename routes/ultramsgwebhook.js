@@ -155,7 +155,7 @@ function sendMessageToWhatsappCategorias( from, response) {
             response[i].productos[j].title='Proveedor: ' + response[i].productos[j].nombre;
             response[i].productos[j].description='ID: ' +response[i].productos[j].id + ' - ' +response[i].productos[j].descripcion;
             listap.push({
-              "id": response[i].response[i].productos[j].id,
+              "id": response[i].productos[j].id,
               "title": response[i].productos[j].nombre,
               "description": 'ID: ' +response[i].productos[j].id + ' - ' +response[i].productos[j].descripcion
             });
