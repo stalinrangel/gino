@@ -76,6 +76,13 @@ app.post('/ultramsgwebhook', (req, res) => {
   //messageMsg=req.body['data']['body'] // Message text
   res.status(200).end()
 })
+app.get('/ultramsgwebhook', (req, res) => {
+  console.log(req.body) // print all response
+
+  //messageFrom=req.body['data']['from'] // sender number
+  //messageMsg=req.body['data']['body'] // Message text
+  res.status(200).end()
+})
 
 
 // catch 404 and forward to error handler
