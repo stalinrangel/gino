@@ -42,7 +42,9 @@ router.post('/', function(req, res, next) {
 
 
 function calldialogflow(text,from){
-    let session = sessionIds.get(from+'@c.us');
+    const sesionn=from+'@c.us'
+    console.log(sesionn);
+    let session = sessionIds.get(sesionn);
     console.log(session)
     let payload = dialogflow.sendToDialogFlow(text, session);
     console.log(payload)
