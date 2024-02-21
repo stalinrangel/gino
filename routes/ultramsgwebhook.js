@@ -31,11 +31,18 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
      // print all response
      console.log(req.body.entry[0].changes[0].value.messages); 
-     const message=req.body.entry[0].changes[0].value.messages[0].text.body;
-     const from=req.body.entry[0].changes[0].value.messages[0].from;
-     console.log(message) 
-     console.log(from) ;
-     calldialogflow(message,from);
+
+     if (req.body.entry[0].changes[0].value.messages[0].interactive) {
+      console.log(req.body.entry[0].changes[0].value.messages[0].interactive)
+     }else{
+      const message=req.body.entry[0].changes[0].value.messages[0].text.body;
+      const from=req.body.entry[0].changes[0].value.messages[0].from;
+
+
+      console.log(message) 
+      console.log(from) ;
+      calldialogflow(message,from);
+     }
      res.status(200).send('Exito');
     
 });
@@ -47,10 +54,8 @@ async function calldialogflow(text,from){
     let session = sessionIds.get(sesionn);
     console.log(session)
     let payload = await dialogflow.sendToDialogFlow(text, sesionn);
-    console.log('-444444444444------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     console.log(payload.action)
-    console.log('---22222222----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    //enviarTexto(text,from);
+
     if (payload.action=="hola.action") {
         console.log('---1111111111----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
 
