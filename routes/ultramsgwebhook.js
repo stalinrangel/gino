@@ -84,6 +84,33 @@ async function calldialogflow(text,from){
 
 }
 
+function getProducts(categoria){
+    return new Promise((resolve, reject) => {
+        axios.get('https://service24.app/apii/public/subcategorias_bot/'+categoria)
+        .then((response) => {
+            //console.log(response.data);
+            resolve(response.data.subcategorias);
+        })
+        .catch((error) => {
+            reject(error);
+        });
+    });
+}
+
+function getProveedor(id){
+    return new Promise((resolve, reject) => {
+        axios.get('https://service24.app/apii/public/productos/'+id)
+        .then((response) => {
+            //console.log(response.data);
+            resolve(response.data.producto);
+        })
+        .catch((error) => {
+            reject(error);
+        });
+    });
+}
+
+
 const token='EAAPDHrJXdvwBO9IzTuHU6JLQt0GgdXZCnHrji4meT0CN8xJgU64cNwJPorZAwFv3iMEYFyOEcF2luIOM5evIPH2KXJ0e1jZCjZBYt8tiGCsw5YKk4rOR4gGEggO0ynnxw4pRthqqZCL4Btidr08ZC84gQxx83Iok2CuqRXH06nIZAZBQZAhiuq13MQ72ofN8ZBAlum0ZCoZCazOonebHoK5z';
 
 function enviarTexto(mesanje,from){
