@@ -81,7 +81,7 @@ async function calldialogflow(text,from){
     }else if(payload.action=="frecuentes.action"){
       
         //enviarTextoUrl(text);
-        enviarList(frecuentes);
+        enviarList(from,frecuentes);
         //enviarButtom(text);
     }else if (payload.action=="categoria.info.action") {
         subcategoria=payload.parameters.fields.categoriaName.stringValue;
@@ -241,7 +241,7 @@ function  enviarOpcion(from,opcion){
   });
 }
 
-function enviarList(list){
+function enviarList(from,list){
   const options={
     method: 'POST',
     url: 'https://graph.facebook.com/v18.0/216885471516427/messages',
