@@ -110,6 +110,40 @@ function getProveedor(id){
     });
 }
 
+function sendMessageToWhatsappCategorias(client, message, response) {
+    
+    return new Promise((resolve, reject) => {
+    let lista=[];
+    for (let i = 0; i < response.length; i++) {
+        for (let j = 0; j < response[i].productos.length; j++) {
+            response[i].productos[j].title='Proveedor: ' + response[i].productos[j].nombre;
+            response[i].productos[j].description='ID: ' +response[i].productos[j].id + ' - ' +response[i].productos[j].descripcion;
+        }
+        if (response[i].productos.length>0) {
+            lista.push({
+                title: response[i].nombre,
+                rows: response[i].productos
+            });
+        }
+        
+    }
+
+    console.log(lista);
+    
+
+    enviarList(message.from, 'Service24', 'subTitle', 'Aquí te mostramos los proveedores disponibles en "'+subcategoria+'":', 'Ver', lista);
+
+    client.sendListMenu(message.from, 'Service24', 'subTitle', 'Aquí te mostramos los proveedores disponibles en "'+subcategoria+'":', 'Ver', lista)
+    .then((result) => {
+        resolve(result);
+    })
+    .catch((erro) => {
+        console.error("Error when sending: ", erro);
+        reject(erro);
+    });
+    });
+  }
+
 
 const token='EAAPDHrJXdvwBO9IzTuHU6JLQt0GgdXZCnHrji4meT0CN8xJgU64cNwJPorZAwFv3iMEYFyOEcF2luIOM5evIPH2KXJ0e1jZCjZBYt8tiGCsw5YKk4rOR4gGEggO0ynnxw4pRthqqZCL4Btidr08ZC84gQxx83Iok2CuqRXH06nIZAZBQZAhiuq13MQ72ofN8ZBAlum0ZCoZCazOonebHoK5z';
 
