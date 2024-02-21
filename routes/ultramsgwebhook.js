@@ -117,7 +117,9 @@ function getProducts(categoria){
     return new Promise((resolve, reject) => {
         axios.get('https://service24.app/apii/public/subcategorias_bot/'+categoria)
         .then((response) => {
-            //console.log(response.data);
+          console.log('***************************************************************************************************');
+           console.log(response.data);
+           console.log('***************************************************************************************************');
             resolve(response.data.subcategorias);
         })
         .catch((error) => {
