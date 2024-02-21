@@ -65,7 +65,7 @@ async function calldialogflow(text,from){
         productos= getProducts(payload.parameters.fields.categoriaName.stringValue);
         let responses = payload.fulfillmentMessages;
         for (const response of responses) {
-             sendMessageToWhatsappCategorias(from, message, productos);
+             sendMessageToWhatsappCategorias(from, productos);
         }
     }else if (payload.action=="proveedor.info.action") {
         proveedor= getProveedor(payload.parameters.fields.number.numberValue);
