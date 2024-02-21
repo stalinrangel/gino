@@ -48,6 +48,10 @@ function calldialogflow(text,from){
     console.log(session)
     let payload = dialogflow.sendToDialogFlow(text, sesionn);
     console.log(payload)
+    console.log('-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+    console.log('-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+    console.log('-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+
     if (payload.action=="hola.action") {
 
         enviarTexto(message);
@@ -83,6 +87,8 @@ function calldialogflow(text,from){
 const token='EAAPDHrJXdvwBO9IzTuHU6JLQt0GgdXZCnHrji4meT0CN8xJgU64cNwJPorZAwFv3iMEYFyOEcF2luIOM5evIPH2KXJ0e1jZCjZBYt8tiGCsw5YKk4rOR4gGEggO0ynnxw4pRthqqZCL4Btidr08ZC84gQxx83Iok2CuqRXH06nIZAZBQZAhiuq13MQ72ofN8ZBAlum0ZCoZCazOonebHoK5z';
 
 function enviarTexto(mesanje){
+    console.log('¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+
   const options={
     method: 'POST',
     url: 'https://graph.facebook.com/v18.0/216885471516427/messages',
