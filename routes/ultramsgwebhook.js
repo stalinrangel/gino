@@ -10,7 +10,8 @@ const service=require('./../models/roles')
 router.get('/', function(req, res, next) {
      // print all response
     const modo=req.query;
-    console.log(modo['hub.mode']); 
+    console.log(modo); 
+    console.log(modo['hub.challenge']); 
     
 
     const verifyToken=modo['hub.verifyToken'];
