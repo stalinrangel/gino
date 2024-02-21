@@ -31,9 +31,9 @@ router.post('/', function(req, res, next) {
     console.log(req.query) // print all response
     console.log('post'); // print all response
     if (true) {
-        const challenge= modo['hub.challenge'];
-        console.log(challenge); 
-        res.status(200).send(modo['hub.challenge']);
+       
+        console.log('challenge'); 
+        res.status(200).send('hub.challenge');
     }else{
         res.status(404).send('Acceso no autorizado');
     }
