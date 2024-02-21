@@ -141,7 +141,17 @@ function sendMessageToWhatsappCategorias( from, response) {
 const token='EAAPDHrJXdvwBO9IzTuHU6JLQt0GgdXZCnHrji4meT0CN8xJgU64cNwJPorZAwFv3iMEYFyOEcF2luIOM5evIPH2KXJ0e1jZCjZBYt8tiGCsw5YKk4rOR4gGEggO0ynnxw4pRthqqZCL4Btidr08ZC84gQxx83Iok2CuqRXH06nIZAZBQZAhiuq13MQ72ofN8ZBAlum0ZCoZCazOonebHoK5z';
 
 function enviarTexto(mesanje,from){
-    console.log('¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+  
+  let hola='Bienvenido a Service24!\n' +
+  '\n' +
+  'Descarga nuestra app:\n' +
+  'https://service24es.com/links\n' +
+  '\n' +
+  'Visita nuestra web:\n' +
+  'https://service24.app/\n' +
+  '\n' +
+  'Nuestras redes:\n' +
+  'https://www.instagram.com/service24.uy/?';
 
   const options={
     method: 'POST',
@@ -153,13 +163,8 @@ function enviarTexto(mesanje,from){
     data: { 
       "messaging_product": "whatsapp", 
       "to": from, 
-      "type": "template", 
-      "template": { 
-        "name": 
-        "hello_world", 
-        "language": {
-           "code": "en_US" 
-        } 
+      "type": "text", 
+      "text": hola
       } 
     }
   };
@@ -273,7 +278,7 @@ function enviarList(from,title,susbtitle,titleList,buttonText,lista){
   });
 }
 
-function enviarButtom(mesanje){
+function enviarButtom(mesanje,from){
   const options={
     method: 'POST',
     url: 'https://graph.facebook.com/v18.0/216885471516427/messages',
@@ -284,7 +289,7 @@ function enviarButtom(mesanje){
     data: {
       "messaging_product": "whatsapp",
       "recipient_type": "individual",
-      "to": "584147428420",
+      "to": from,
       "type": "interactive",
       "interactive": {
           "type": "button",
