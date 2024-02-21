@@ -342,6 +342,21 @@ const frecuentes={
                       "id": "<LIST_SECTION_1_ROW_2_ID>",
                       "title": "¿Buscar proveedores?",
                       "description":"Como encontrar un proveedor de servicio"
+                  },
+                  {
+                      "id": "<LIST_SECTION_1_ROW_4_ID>",
+                      "title": "¿Qué ofrece la APP?",
+                      "description":"Qué tipos de servicios ofrecen la App"
+                  },
+                  {
+                      "id": "<LIST_SECTION_1_ROW_3_ID>",
+                      "title": "Contactar proveedores",
+                      "description":"¿Cómo contactar a un proveedor de servicio?"
+                  },
+                  {
+                      "id": "<LIST_SECTION_1_ROW_5_ID>",
+                      "title": "¿Eres proveedores?",
+                      "description":"¿Cómo puedo convertirme en un proveedor de servicio?"
                   }
               ]
           }
