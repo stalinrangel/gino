@@ -35,7 +35,7 @@ router.post('/', function(req, res, next) {
      const from=req.body.entry[0].changes[0].value.messages[0].from;
      console.log(message) 
      console.log(from) ;
-     
+     calldialogflow(message,from);
      res.status(200).send('Exito');
     
 });
