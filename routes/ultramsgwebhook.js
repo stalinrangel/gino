@@ -55,6 +55,7 @@ async function calldialogflow(text,from){
         console.log('---1111111111----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
 
         await enviarTexto(text,from);
+        await enviarButtom(text,from);
     }else if(payload.action=="frecuentes.action"){
       
         enviarTextoUrl(text);
