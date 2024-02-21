@@ -173,7 +173,7 @@ function enviarTexto(mesanje,from){
   });
 }
 
-function enviarTextoUrl(mesanje){
+function enviarTextoUrl(mesanje,from){
   const options={
     method: 'POST',
     url: 'https://graph.facebook.com/v18.0/216885471516427/messages',
@@ -183,7 +183,7 @@ function enviarTextoUrl(mesanje){
     },
     data: {
       "messaging_product": "whatsapp",
-      "to": "584147428420",
+      "to": from,
       "text": {
           "preview_url": true,
           "body": "Please visit https://youtu.be/hpltvTEiRrY to inspire your day!"
@@ -211,7 +211,7 @@ function enviarList(from,title,susbtitle,titleList,buttonText,lista){
     data: {
       "messaging_product": "whatsapp",
       "recipient_type": "individual",
-      "to": "584147428420",
+      "to": from,
       "type": "interactive",
       "interactive": {
           "type": "list",
