@@ -65,7 +65,7 @@ async function calldialogflow(text,from){
         productos= getProducts(payload.parameters.fields.categoriaName.stringValue);
         let responses = payload.fulfillmentMessages;
         for (const response of responses) {
-             sendMessageToWhatsappCategorias(client, message, productos);
+             sendMessageToWhatsappCategorias(from, message, productos);
         }
     }else if (payload.action=="proveedor.info.action") {
         proveedor= getProveedor(payload.parameters.fields.number.numberValue);
@@ -110,7 +110,7 @@ function getProveedor(id){
     });
 }
 
-function sendMessageToWhatsappCategorias(client, message, response) {
+function sendMessageToWhatsappCategorias( from, response) {
     
     return new Promise((resolve, reject) => {
     let lista=[];
@@ -131,16 +131,9 @@ function sendMessageToWhatsappCategorias(client, message, response) {
     console.log(lista);
     
 
-    enviarList(message.from, 'Service24', 'subTitle', 'Aquí te mostramos los proveedores disponibles en "'+subcategoria+'":', 'Ver', lista);
+    enviarList(from, 'Service24', 'subTitle', 'Aquí te mostramos los proveedores disponibles en "'+subcategoria+'":', 'Ver', lista);
 
-    client.sendListMenu(message.from, 'Service24', 'subTitle', 'Aquí te mostramos los proveedores disponibles en "'+subcategoria+'":', 'Ver', lista)
-    .then((result) => {
-        resolve(result);
-    })
-    .catch((erro) => {
-        console.error("Error when sending: ", erro);
-        reject(erro);
-    });
+    
     });
   }
 
