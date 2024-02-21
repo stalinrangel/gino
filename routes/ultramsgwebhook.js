@@ -46,7 +46,7 @@ function calldialogflow(text,from){
     console.log(sesionn);
     let session = sessionIds.get(sesionn);
     console.log(session)
-    let payload = dialogflow.sendToDialogFlow(text, session);
+    let payload = dialogflow.sendToDialogFlow(text, sesionn);
     console.log(payload)
     if (payload.action=="hola.action") {
 
