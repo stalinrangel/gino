@@ -169,7 +169,7 @@ function sendMessageToWhatsappCategorias( from, response) {
           "text": "Service24"
       },
       "body": {
-        "text": 'Aquí te mostramos los proveedores disponibles en "'+subcategoria+'":'
+        "text": "Aquí te mostramos los proveedores disponibles en "+subcategoria+":"
       },
       "action": {
           "button": "Ver",
