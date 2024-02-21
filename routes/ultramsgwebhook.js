@@ -150,13 +150,13 @@ function sendMessageToWhatsappCategorias( from, response) {
     let lista=[];
     for (let i = 0; i < response.length; i++) {
         for (let j = 0; j < response[i].productos.length; j++) {
-            response[i].productos[j].title='Proveedor: ' + response[i].productos[j].nombre;
-            response[i].productos[j].description='ID: ' +response[i].productos[j].id + ' - ' +response[i].productos[j].descripcion;
+            response[i].productos2[j].title='Proveedor: ' + response[i].productos[j].nombre;
+            response[i].productos2[j].description='ID: ' +response[i].productos[j].id + ' - ' +response[i].productos[j].descripcion;
         }
         if (response[i].productos.length>0) {
             lista.push({
                 title: response[i].nombre,
-                rows: response[i].productos
+                rows: response[i].productos2
             });
         }
         
