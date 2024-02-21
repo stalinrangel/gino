@@ -8,51 +8,22 @@ const service=require('./../models/roles')
 
 
 router.get('/', function(req, res, next) {
-    return service.all()
-    .then((response)=>res.json(response))
-    .catch((e)=>res.json({e}));
+    console.log(req.body) // print all response
+
+  //messageFrom=req.body['data']['from'] // sender number
+  //messageMsg=req.body['data']['body'] // Message text
+  res.status(200).end()
+});
+
+router.post('/', function(req, res, next) {
+    console.log(req.body) // print all response
+
+  //messageFrom=req.body['data']['from'] // sender number
+  //messageMsg=req.body['data']['body'] // Message text
+  res.status(200).end()
 });
 
 
-const list=(req,res)=>{
-    console.log('sss222s')
-    return service.all()
-    .then((response)=>res.json(response))
-    .catch((e)=>res.json({e}));
-    }
-const single=(req,res)=> 
-    service.list({id:req.params.id})
-    .then((response)=>res.json(response))
-    .catch((e)=>res.json({e}));
-
-const create=(req,res)=> {
-    const user= {name,designation} = req.body;
-    console.log(user)
-    return service
-    .create(user)
-    .then((response)=>res.json(response))
-    .catch((e)=>res.json({e}));
-}
-const update=(req,res)=> {
-    const user= {name,designation} = req.body;
-    console.log(user)
-    return service
-    .update({id:req.params.id},user)
-    .then((response)=>res.json(response))
-    .catch((e)=>res.json({e}));
-}
-
-const eliminate=(req,res)=> 
-    service.eliminate({id:req.params.id})
-    .then((response)=>res.json(response))
-    .catch((e)=>res.json({e}));
-
-
-router.get('/:id', single);
-
-router.post("/",create);
-router.put('/:id',update);
-router.delete('/:id',eliminate);
 
 module.exports = router;
     
