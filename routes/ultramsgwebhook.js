@@ -34,8 +34,8 @@ router.post('/', function(req, res, next) {
      console.log(req.body.entry[0].changes[0]); 
 
 
-     if (req.body.object=='whatsapp_business_account') {
-      
+     if (!req.body.entry[0].changes[0].value.messages) {
+      res.status(200).send('Exito');
      }
      const from=req.body.entry[0].changes[0].value.messages[0].from;
      if (req.body.entry[0].changes[0].value.messages[0].interactive) {
