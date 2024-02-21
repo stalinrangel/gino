@@ -38,6 +38,7 @@ router.post('/', function(req, res, next) {
         console.log(req.body.entry[0].changes[0].value.messages[0].interactive.list_reply.description)
       }
       if (req.body.entry[0].changes[0].value.messages[0].interactive.type=='button_reply') {
+        console.log('button_reply');
         let action=req.body.entry[0].changes[0].value.messages[0].interactive.button_reply.title;
         console.log(action)
         if (action=='Pregungas frecuentes') {
