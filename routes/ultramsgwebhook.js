@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 
     const verifyToken=modo['hub.verifyToken'];
     console.log(verifyToken); 
-    if (verifyToken=='hola') {
+    if (true) {
         const challenge= modo['hub.challenge'];
         console.log(challenge); 
         res.status(200).send(modo['hub.challenge']);
