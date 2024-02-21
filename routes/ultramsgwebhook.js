@@ -157,7 +157,11 @@ function sendMessageToWhatsappCategorias( from, response) {
         if (response[i].productos.length>0) {
             lista.push({
                 title: response[i].nombre,
-                rows: response[i].productos
+                rows: {
+                  id:response[i].id,
+                  title:response[i].title,
+                  description:response[i].descripcion
+                }
             });
         }
         
