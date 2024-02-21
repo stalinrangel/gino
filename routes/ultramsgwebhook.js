@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
      // print all response
      console.log(req.body.entry[0].changes[0].value.messages); 
-
+     const from=req.body.entry[0].changes[0].value.messages[0].from;
      if (req.body.entry[0].changes[0].value.messages[0].interactive) {
       console.log(req.body.entry[0].changes[0].value.messages[0].interactive)
       if (req.body.entry[0].changes[0].value.messages[0].interactive.type=='list_reply') {
@@ -55,8 +55,7 @@ router.post('/', function(req, res, next) {
       }
      }else{
       const message=req.body.entry[0].changes[0].value.messages[0].text.body;
-      const from=req.body.entry[0].changes[0].value.messages[0].from;
-
+      
 
       console.log(message) 
       console.log(from) ;
