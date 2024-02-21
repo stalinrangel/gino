@@ -50,7 +50,7 @@ function calldialogflow(text,from){
     console.log('-444444444444------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     console.log(payload)
     console.log('---22222222----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-    enviarTexto(text);
+    enviarTexto(text,from);
     if (payload.action=="hola.action") {
         console.log('---1111111111----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
 
@@ -86,7 +86,7 @@ function calldialogflow(text,from){
 
 const token='EAAPDHrJXdvwBO9IzTuHU6JLQt0GgdXZCnHrji4meT0CN8xJgU64cNwJPorZAwFv3iMEYFyOEcF2luIOM5evIPH2KXJ0e1jZCjZBYt8tiGCsw5YKk4rOR4gGEggO0ynnxw4pRthqqZCL4Btidr08ZC84gQxx83Iok2CuqRXH06nIZAZBQZAhiuq13MQ72ofN8ZBAlum0ZCoZCazOonebHoK5z';
 
-function enviarTexto(mesanje){
+function enviarTexto(mesanje,from){
     console.log('¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
 
   const options={
@@ -98,7 +98,7 @@ function enviarTexto(mesanje){
     },
     data: { 
       "messaging_product": "whatsapp", 
-      "to": "584127429278", 
+      "to": from, 
       "type": "template", 
       "template": { 
         "name": 
