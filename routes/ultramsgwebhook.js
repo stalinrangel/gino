@@ -160,12 +160,16 @@ function enviarTexto(mesanje,from){
       'Authorization': 'Bearer '+token,
       'Content-Type': 'application/json'
     },
-    data: { 
-      "messaging_product": "whatsapp", 
-      "to": from, 
-      "type": "text", 
-      "text": hola
-    } 
+    data: {
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      "to": from,
+      "type": "text",
+      "text": { // the text object
+        "preview_url": false,
+        "body": hola
+        }
+    }
   };
   console.log('-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
   axios(options)
