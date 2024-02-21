@@ -9,8 +9,9 @@ const service=require('./../models/roles')
 
 router.get('/', function(req, res, next) {
     console.log(req.query) // print all response
-    console.log(JSON.stringify(req.query)) // print all response
-    console.log(JSON.parse(req.query)) //  // print all response
+    var respuesta= JSON.stringify(req.query);
+    console.log(respuesta) // print all response
+    console.log(JSON.parse(respuesta)) //  // print all response
     console.log('get'); // print all response
 
     const verifyToken=req.query.verifyToken;
