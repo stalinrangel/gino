@@ -71,20 +71,6 @@ app.use('/images/app', express.static(__dirname + '/public/images/app'));
 const ultramsgwebhookRouter = require('./routes/ultramsgwebhook');
 app.use('/ultramsgwebhook', ultramsgwebhookRouter);
 
-app.post('/ultramsgwebhook', (req, res) => {
-  console.log(req.body) // print all response
-
-  //messageFrom=req.body['data']['from'] // sender number
-  //messageMsg=req.body['data']['body'] // Message text
-  res.status(200).end()
-})
-app.get('/ultramsgwebhook', (req, res) => {
-  console.log(req.body) // print all response
-
-  //messageFrom=req.body['data']['from'] // sender number
-  //messageMsg=req.body['data']['body'] // Message text
-  res.status(200).end()
-})
 
 
 // catch 404 and forward to error handler
