@@ -57,9 +57,9 @@ async function calldialogflow(text,from){
         await enviarTexto(text,from);
     }else if(payload.action=="frecuentes.action"){
       
-        enviarTextoUrl(message);
-        enviarList(message);
-        enviarButtom(message);
+        enviarTextoUrl(text);
+        enviarList(text);
+        enviarButtom(text);
     }else if (payload.action=="categoria.info.action") {
         subcategoria=payload.parameters.fields.categoriaName.stringValue;
         productos= getProducts(payload.parameters.fields.categoriaName.stringValue);
