@@ -69,7 +69,7 @@ app.use('/images/profile', express.static(__dirname + '/public/images/profile'))
 app.use('/images/app', express.static(__dirname + '/public/images/app'));
 
 const ultramsgwebhookRouter = require('./routes/ultramsgwebhook');
-app.use('/ultramsgwebhook', ultramsgwebhookRouter);
+app.use('/wh', ultramsgwebhookRouter);
 
 
 

@@ -6,26 +6,25 @@ var router = express.Router();
 const service=require('./../models/roles')
 
 
-router.get('/', (req, res) => {
-    console.log(req.body) // print all response
-    console.log(123)
-    //messageFrom=req.body['data']['from'] // sender number
-    //messageMsg=req.body['data']['body'] // Message text
-    res.status(200).end()
-  })
 
-router.post('/', (req, res) => {
-    console.log(req.body) // print all response
+router.get('/', function(req, res, next) {
+    return service.all()
+    .then((response)=>res.json(response))
+    .catch((e)=>res.json({e}));
+});
 
-    //messageFrom=req.body['data']['from'] // sender number
-    //messageMsg=req.body['data']['body'] // Message text
-    res.status(200).end()
-})
-const single=(req,res)=> {
-    console.log(req.body) // print all response
 
-    res.status(200).end()
-}
+const list=(req,res)=>{
+    console.log('sss222s')
+    return service.all()
+    .then((response)=>res.json(response))
+    .catch((e)=>res.json({e}));
+    }
+const single=(req,res)=> 
+    service.list({id:req.params.id})
+    .then((response)=>res.json(response))
+    .catch((e)=>res.json({e}));
+
 const create=(req,res)=> {
     const user= {name,designation} = req.body;
     console.log(user)
@@ -49,12 +48,11 @@ const eliminate=(req,res)=>
     .catch((e)=>res.json({e}));
 
 
-router.get('/', single);
+router.get('/:id', single);
 
 router.post("/",create);
+router.put('/:id',update);
+router.delete('/:id',eliminate);
 
 module.exports = router;
     
-
-
-module.exports = router;
