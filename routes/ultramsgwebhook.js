@@ -209,6 +209,7 @@ function enviarTexto(mesanje,from){
 
 
 function  enviarOpcion(from,opcion){
+  console.log(from);
   let hola=opcion;
 
   const options={
