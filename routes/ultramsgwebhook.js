@@ -44,6 +44,7 @@ router.post('/', function(req, res, next) {
         if (action=='Pregungas frecuentes') {
           
         }
+        console.log(action=='Buscar un proveedor');
         if (action=='Buscar un proveedor') {
           let opcion1='¿Qué servicios buscas?';
           console.log(opcion1);
