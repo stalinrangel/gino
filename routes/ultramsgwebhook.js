@@ -8,8 +8,10 @@ const service=require('./../models/roles')
 
 
 router.get('/', function(req, res, next) {
-    console.log(req.query) // print all response
-    console.log(req.query.data['hub.mode']); 
+     // print all response
+    const modo=req.query;
+    console.log(modo)
+    console.log(modo['hub.mode']); 
     
 
     const verifyToken=req.query.verifyToken;
