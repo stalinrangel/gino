@@ -10,9 +10,15 @@ const service=require('./../models/roles')
 router.get('/', function(req, res, next) {
     console.log(req.body) // print all response
 
-  //messageFrom=req.body['data']['from'] // sender number
-  //messageMsg=req.body['data']['body'] // Message text
-  res.status(200).end()
+    const verifyToken=req.query.verifyToken;
+
+    if (verifyToken=='hola') {
+        const challenge= req.query.challenge;
+        res.status(200).send(challenge);
+    }else{
+        res.status(404).send('Acceso no autorizado');
+    }
+  
 });
 
 router.post('/', function(req, res, next) {
