@@ -4,7 +4,7 @@ const { verify } = require('jsonwebtoken');
 require('dotenv').config();
 var router = express.Router();
 
-const dialogflow = require("./dialogflow");
+const dialogflow = require("../dialogflow");
 const axios = require('axios');
 const sessionIds = new Map();
 
