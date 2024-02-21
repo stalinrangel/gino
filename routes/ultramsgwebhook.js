@@ -44,7 +44,8 @@ router.post('/', function(req, res, next) {
           
         }
         if (action=='Buscar un proveedor') {
-          
+          let opcion1='¿Qué servicios buscas?';
+          enviarOpcion(from,opcion1);
         }
       }
      }else{
