@@ -85,7 +85,7 @@ async function calldialogflow(text,from){
         //enviarButtom(text);
     }else if (payload.action=="categoria.info.action") {
         subcategoria=payload.parameters.fields.categoriaName.stringValue;
-        productos= getProducts(payload.parameters.fields.categoriaName.stringValue);
+        productos= await getProducts(payload.parameters.fields.categoriaName.stringValue);
         console.log('---1111111111----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
         console.log(productos);
         console.log('---1111111111----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
