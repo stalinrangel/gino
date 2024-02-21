@@ -8,7 +8,7 @@ const service=require('./../models/roles')
 
 
 router.get('/', function(req, res, next) {
-    console.log(req.body) // print all response
+    console.log(req) // print all response
     console.log('get'); // print all response
 
     const verifyToken=req.query.verifyToken;
@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    console.log(req.body) // print all response
+    console.log(req) // print all response
     console.log('post'); // print all response
     const verifyToken=req.query.verifyToken;
 
