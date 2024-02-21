@@ -9,6 +9,7 @@ const service=require('./../models/roles')
 
 router.get('/', function(req, res, next) {
      // print all response
+     console.log(req.body); 
     const modo=req.query;
     console.log(modo); 
     
@@ -26,13 +27,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+    console.log(req.body); 
     console.log(req.query) // print all response
     console.log('post'); // print all response
-    const verifyToken=req.query.verifyToken;
-
-    if (verifyToken=='hola') {
-        const challenge= req.query.challenge;
-        res.status(200).send(challenge);
+    if (true) {
+        const challenge= modo['hub.challenge'];
+        console.log(challenge); 
+        res.status(200).send(modo['hub.challenge']);
     }else{
         res.status(404).send('Acceso no autorizado');
     }
