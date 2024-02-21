@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
      // print all response
-     console.log(req.body); 
+     console.log(req.body.entry[0]); 
     const modo=req.query;
     console.log(modo); 
     
