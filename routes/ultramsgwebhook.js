@@ -42,8 +42,9 @@ router.post('/', function(req, res, next) {
         console.log('button_reply');
         let action=req.body.entry[0].changes[0].value.messages[0].interactive.button_reply.title;
         console.log(action)
+        console.log(action=='Pregungas frecuentes');
         if (action=='Pregungas frecuentes') {
-          
+          enviarList(from,frecuentes);
         }
         console.log(action=='Buscar un proveedor');
         if (action=='Buscar un proveedor') {
