@@ -47,7 +47,7 @@ router.post('/', function(req, res, next) {
 });
 
 
-calldialogflow(){
+function calldialogflow(){
 
     let payload = dialogflow.sendToDialogFlow(message.body, session);
     console.log(payload)
