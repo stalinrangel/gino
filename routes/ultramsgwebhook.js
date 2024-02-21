@@ -27,13 +27,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    console.log(req.body); 
-    console.log(req.query) // print all response
-    console.log('post'); // print all response
+     // print all response
+     console.log(req.body); 
+    const modo=req.query;
+    console.log(modo); 
+    
+
+    const verifyToken=modo['hub.verifyToken'];
+    console.log(verifyToken); 
     if (true) {
-       
-        console.log('challenge'); 
-        res.status(200).send('hub.challenge');
+        const challenge= modo['hub.challenge'];
+        console.log(challenge); 
+        res.status(200).send(modo['hub.challenge']);
     }else{
         res.status(404).send('Acceso no autorizado');
     }
