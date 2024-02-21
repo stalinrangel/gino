@@ -21,3 +21,7 @@ router.post('/ultramsgwebhook', (req, res) => {
     //messageMsg=req.body['data']['body'] // Message text
     res.status(200).end()
 })
+
+
+
+module.exports = router;
