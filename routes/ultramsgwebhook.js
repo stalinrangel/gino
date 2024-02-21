@@ -47,6 +47,7 @@ router.post('/', function(req, res, next) {
           let opcion1='¿Qué servicios buscas?';
           console.log(opcion1);
           console.log(from);
+          console.log('from');
           enviarOpcion(from,opcion1);
         }
       }
