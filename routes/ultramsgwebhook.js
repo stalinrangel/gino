@@ -8,6 +8,7 @@ const dialogflow = require("../dialogflow");
 const axios = require('axios');
 const sessionIds = new Map();
 
+
 router.get('/', function(req, res, next) {
      // print all response
      console.log(req.body); 
@@ -47,9 +48,7 @@ router.post('/', function(req, res, next) {
         console.log(action=='Buscar un proveedor');
         if (action=='Buscar un proveedor') {
           let opcion1='¿Qué servicios buscas?';
-          console.log(opcion1);
-          console.log(from);
-          console.log('from');
+
           enviarOpcion(from,opcion1);
         }
       }
@@ -81,9 +80,9 @@ async function calldialogflow(text,from){
         await enviarButtom(text,from);
     }else if(payload.action=="frecuentes.action"){
       
-        enviarTextoUrl(text);
-        enviarList(text);
-        enviarButtom(text);
+        //enviarTextoUrl(text);
+        enviarList(frecuentes);
+        //enviarButtom(text);
     }else if (payload.action=="categoria.info.action") {
         subcategoria=payload.parameters.fields.categoriaName.stringValue;
         productos= getProducts(payload.parameters.fields.categoriaName.stringValue);
@@ -242,7 +241,7 @@ function  enviarOpcion(from,opcion){
   });
 }
 
-function enviarList(from,title,susbtitle,titleList,buttonText,lista){
+function enviarList(list){
   const options={
     method: 'POST',
     url: 'https://graph.facebook.com/v18.0/216885471516427/messages',
@@ -255,54 +254,7 @@ function enviarList(from,title,susbtitle,titleList,buttonText,lista){
       "recipient_type": "individual",
       "to": from,
       "type": "interactive",
-      "interactive": {
-          "type": "list",
-          "header": {
-              "type": "text",
-              "text": "<HEADER_TEXT>"
-          },
-          "body": {
-              "text": "<BODY_TEXT>"
-          },
-          "footer": {
-              "text": "<FOOTER_TEXT>"
-          },
-          "action": {
-              "button": "<BUTTON_TEXT>",
-              "sections": [
-                  {
-                      "title": "<LIST_SECTION_1_TITLE>",
-                      "rows": [
-                          {
-                              "id": "<LIST_SECTION_1_ROW_1_ID>",
-                              "title": "<SECTION_1_ROW_1_TITLE>",
-                              "description": "<SECTION_1_ROW_1_DESC>"
-                          },
-                          {
-                              "id": "<LIST_SECTION_1_ROW_2_ID>",
-                              "title": "<SECTION_1_ROW_2_TITLE>",
-                              "description": "<SECTION_1_ROW_2_DESC>"
-                          }
-                      ]
-                  },
-                  {
-                      "title": "<LIST_SECTION_2_TITLE>",
-                      "rows": [
-                          {
-                              "id": "<LIST_SECTION_2_ROW_1_ID>",
-                              "title": "<SECTION_2_ROW_1_TITLE>",
-                              "description": "<SECTION_2_ROW_1_DESC>"
-                          },
-                          {
-                              "id": "<LIST_SECTION_2_ROW_2_ID>",
-                              "title": "<SECTION_2_ROW_2_TITLE>",
-                              "description": "<SECTION_2_ROW_2_DESC>"
-                          }
-                      ]
-                  }
-              ]
-          }
-      }
+      "interactive": list
     }
   };
   
@@ -363,6 +315,35 @@ function enviarButtom(mesanje,from){
     console.log(error);
   });
 }
+
+
+const frecuentes={
+  "type": "list",
+  "header": {
+      "type": "text",
+      "text": "Preguntas frecuentes"
+  },
+  "action": {
+      "button": "Seleccionar",
+      "sections": [
+          {
+              "title": "Selecciona una opción:",
+              "rows": [
+                  {
+                      "id": "<LIST_SECTION_1_ROW_1_ID>",
+                      "title": "<SECTION_1_ROW_1_TITLE>",
+                      "description": "¿Qué es Service24?"
+                  },
+                  {
+                      "id": "<LIST_SECTION_1_ROW_2_ID>",
+                      "title": "<SECTION_1_ROW_2_TITLE>",
+                      "description": "¿Cómo encontrar proveedores de servicio?"
+                  }
+              ]
+          }
+      ]
+  }
+};
 
 
 module.exports = router;
