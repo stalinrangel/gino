@@ -148,20 +148,28 @@ function sendMessageToWhatsappCategorias( from, response) {
     
     return new Promise((resolve, reject) => {
     let lista=[];
-
+    let listap=[];
     for (let i = 0; i < response.length; i++) {
+      listap=[];
         for (let j = 0; j < response[i].productos.length; j++) {
             response[i].productos[j].title='Proveedor: ' + response[i].productos[j].nombre;
             response[i].productos[j].description='ID: ' +response[i].productos[j].id + ' - ' +response[i].productos[j].descripcion;
+            listap.push({
+              "id": response[i].response[i].productos[j].id,
+              "title": response[i].productos[j].nombre,
+              "description": 'ID: ' +response[i].productos[j].id + ' - ' +response[i].productos[j].descripcion
+            });
         }
         if (response[i].productos.length>0) {
             lista.push({
                 "title": response[i].nombre,
-                "rows": response[i].productos
+                "rows": listap
             });
+            
         }
         
     }
+    
     
 
     const categ={
