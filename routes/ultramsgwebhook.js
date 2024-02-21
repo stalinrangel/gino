@@ -11,6 +11,7 @@ const sessionIds = new Map();
 router.get('/', function(req, res, next) {
      // print all response
      console.log(req.body); 
+     console.log(req.query); 
     const modo=req.query;
     console.log(modo); 
     
