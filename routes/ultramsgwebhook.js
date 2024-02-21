@@ -31,23 +31,17 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
      // print all response
      console.log(req.body.entry[0].changes[0].value.messages); 
-    const modo=req.query;
-    console.log(modo); 
-
+     const message=req.body.entry[0].changes[0].value.messages[0].text.body;
+     const from=req.body.entry[0].changes[0].value.messages[0].from;
+     console.log(message) 
+     console.log(from) ;
+     
+     res.status(200).send('Exito');
     
-    const verifyToken=modo['hub.verifyToken'];
-    console.log(verifyToken); 
-    if (true) {
-        const challenge= modo['hub.challenge'];
-        console.log(challenge); 
-        res.status(200).send(modo['hub.challenge']);
-    }else{
-        res.status(404).send('Acceso no autorizado');
-    }
 });
 
 
-function calldialogflow(){
+function calldialogflow(message,sesion){
 
     let payload = dialogflow.sendToDialogFlow(message.body, session);
     console.log(payload)
