@@ -157,10 +157,30 @@ function sendMessageToWhatsappCategorias( from, response) {
         
     }
 
+    const categ={
+      "type": "list",
+      "header": {
+          "type": "text",
+          "text": "Service24"
+      },
+      "body": {
+        "text": 'Aquí te mostramos los proveedores disponibles en "'+subcategoria+'":'
+      },
+      "action": {
+          "button": "Ver",
+          "sections": [
+              {
+                  "title": "Selecciona una opción:",
+                  "rows": lista
+              }
+          ]
+      }
+    };
+
     console.log(lista);
     
 
-    enviarList(from, 'Service24', 'subTitle', 'Aquí te mostramos los proveedores disponibles en "'+subcategoria+'":', 'Ver', lista);
+    enviarList(from, categ);
 
     
     });
@@ -328,7 +348,7 @@ const frecuentes={
     "text": "Preguntas frecuentes"
   },
   "action": {
-      "button": "Seleccionar",
+      "button": "Ver",
       "sections": [
           {
               "title": "Selecciona una opción:",
@@ -355,7 +375,7 @@ const frecuentes={
                   },
                   {
                       "id": "<LIST_SECTION_1_ROW_5_ID>",
-                      "title": "¿Eres proveedores?",
+                      "title": "¿Eres proveedor?",
                       "description":"¿Cómo puedo convertirme en un proveedor de servicio?"
                   }
               ]
