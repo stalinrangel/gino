@@ -11,13 +11,13 @@ router.get('/', function(req, res, next) {
      // print all response
     const modo=req.query;
     console.log(modo); 
-    console.log(modo['hub.challenge']); 
     
 
     const verifyToken=modo['hub.verifyToken'];
-
+    console.log(verifyToken); 
     if (verifyToken=='hola') {
-        const challenge= req.query.challenge;
+        const challenge= modo['hub.challenge'];
+        console.log(challenge); 
         res.status(200).send(modo['hub.challenge']);
     }else{
         res.status(404).send('Acceso no autorizado');
