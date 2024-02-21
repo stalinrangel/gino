@@ -75,8 +75,7 @@ async function calldialogflow(text,from){
     console.log(payload.action)
 
     if (payload.action=="hola.action") {
-        console.log('---1111111111----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-
+       
         await enviarTexto(text,from);
         await enviarButtom(text,from);
     }else if(payload.action=="frecuentes.action"){
@@ -87,6 +86,10 @@ async function calldialogflow(text,from){
     }else if (payload.action=="categoria.info.action") {
         subcategoria=payload.parameters.fields.categoriaName.stringValue;
         productos= getProducts(payload.parameters.fields.categoriaName.stringValue);
+        console.log('---1111111111----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+        console.log(productos);
+        console.log('---1111111111----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
+
         let responses = payload.fulfillmentMessages;
         for (const response of responses) {
              sendMessageToWhatsappCategorias(from, productos);
@@ -117,9 +120,9 @@ function getProducts(categoria){
     return new Promise((resolve, reject) => {
         axios.get('https://service24.app/apii/public/subcategorias_bot/'+categoria)
         .then((response) => {
-          console.log('***************************************************************************************************');
+         
            console.log(response.data);
-           console.log('***************************************************************************************************');
+           
             resolve(response.data.subcategorias);
         })
         .catch((error) => {
