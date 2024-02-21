@@ -41,12 +41,12 @@ router.post('/', function(req, res, next) {
 });
 
 
-function calldialogflow(text,from){
+async function calldialogflow(text,from){
     const sesionn=from+'@c.us'
     console.log(sesionn);
     let session = sessionIds.get(sesionn);
     console.log(session)
-    let payload = dialogflow.sendToDialogFlow(text, sesionn);
+    let payload = await dialogflow.sendToDialogFlow(text, sesionn);
     console.log('-444444444444------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
     console.log(payload.action)
     console.log('---22222222----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
@@ -54,7 +54,7 @@ function calldialogflow(text,from){
     if (payload.action=="hola.action") {
         console.log('---1111111111----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
 
-        enviarTexto(message);
+        await enviarTexto(message);
     }else if(payload.action=="frecuentes.action"){
       
         enviarTextoUrl(message);
