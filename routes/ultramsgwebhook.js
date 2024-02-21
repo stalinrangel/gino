@@ -34,6 +34,12 @@ router.post('/', function(req, res, next) {
 
      if (req.body.entry[0].changes[0].value.messages[0].interactive) {
       console.log(req.body.entry[0].changes[0].value.messages[0].interactive)
+      if (req.body.entry[0].changes[0].value.messages[0].interactive.type=='list_reply') {
+        console.log(req.body.entry[0].changes[0].value.messages[0].interactive.list_reply.description)
+      }
+      if (req.body.entry[0].changes[0].value.messages[0].interactive.type=='button_reply') {
+        console.log(req.body.entry[0].changes[0].value.messages[0].interactive.button_reply.title)
+      }
      }else{
       const message=req.body.entry[0].changes[0].value.messages[0].text.body;
       const from=req.body.entry[0].changes[0].value.messages[0].from;
