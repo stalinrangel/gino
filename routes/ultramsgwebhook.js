@@ -31,8 +31,12 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
      // print all response
-     console.log(req.body); 
-     console.log(req.query); 
+     console.log(req.body.entry[0].changes[0]); 
+
+
+     if (req.body.object=='whatsapp_business_account') {
+      
+     }
      const from=req.body.entry[0].changes[0].value.messages[0].from;
      if (req.body.entry[0].changes[0].value.messages[0].interactive) {
       console.log(req.body.entry[0].changes[0].value.messages[0].interactive)
