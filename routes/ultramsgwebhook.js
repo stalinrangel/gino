@@ -34,9 +34,7 @@ router.post('/', function(req, res, next) {
      console.log(req.body.entry[0].changes[0]); 
 
 
-     if (!req.body.entry[0].changes[0].value.messages) {
-      res.status(200).send('Exito');
-     }
+     
      const from=req.body.entry[0].changes[0].value.messages[0].from;
      if (req.body.entry[0].changes[0].value.messages[0].interactive) {
       console.log(req.body.entry[0].changes[0].value.messages[0].interactive)
@@ -58,15 +56,19 @@ router.post('/', function(req, res, next) {
           enviarOpcion(from,opcion1);
         }
       }
-     }else{
+      res.status(200).send('Exito');
+     }else if (req.body.entry[0].changes[0].value.messages[0].text.body) {
       const message=req.body.entry[0].changes[0].value.messages[0].text.body;
       
 
       console.log(message) 
       console.log(from) ;
       calldialogflow(message,from);
-     }
-     res.status(200).send('Exito');
+      res.status(200).send('Exito');
+     }else if (!req.body.entry[0].changes[0].value.messages) {
+      res.status(200).send('Exito');
+     } 
+     
     
 });
 
