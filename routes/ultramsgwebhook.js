@@ -39,6 +39,13 @@ router.post('/', function(req, res, next) {
       }
       if (req.body.entry[0].changes[0].value.messages[0].interactive.type=='button_reply') {
         console.log(req.body.entry[0].changes[0].value.messages[0].interactive.button_reply.title)
+        let action=req.body.entry[0].changes[0].value.messages[0].interactive.button_reply.title;
+        if (action=='Pregungas frecuentes') {
+          
+        }
+        if (action=='Buscar un proveedor') {
+          
+        }
       }
      }else{
       const message=req.body.entry[0].changes[0].value.messages[0].text.body;
@@ -89,6 +96,7 @@ async function calldialogflow(text,from){
     }
     else{    
         let responses = payload.fulfillmentMessages;
+        console.log(responses)
         for (const response of responses) {
              sendMessageToWhatsapp(client, message, response);
         }
