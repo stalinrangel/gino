@@ -99,7 +99,10 @@ async function calldialogflow(text,from){
        
         for (const response of responses) {
           console.log(response.text)
-             sendMessageToWhatsapp(client, message, response);
+          let opcion1='¿Qué servicios buscas?';
+          if (response.text.text==opcion1) {
+            enviarOpcion(from,opcion1);
+          }
         }
     }
 
@@ -202,7 +205,10 @@ function enviarTexto(mesanje,from){
   });
 }
 
-function enviarTextoUrl(mesanje,from){
+
+function  enviarOpcion(from,opcion){
+  let hola=opcion;
+
   const options={
     method: 'POST',
     url: 'https://graph.facebook.com/v18.0/216885471516427/messages',
@@ -212,14 +218,15 @@ function enviarTextoUrl(mesanje,from){
     },
     data: {
       "messaging_product": "whatsapp",
+      "recipient_type": "individual",
       "to": from,
-      "text": {
-          "preview_url": true,
-          "body": "Please visit https://youtu.be/hpltvTEiRrY to inspire your day!"
-      }
+      "type": "text",
+      "text": { // the text object
+        "preview_url": false,
+        "body": hola
+        }
     }
   };
-  
   axios(options)
   .then(function (response) {
     console.log(response);
