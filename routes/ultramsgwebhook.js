@@ -322,7 +322,10 @@ const frecuentes={
   "type": "list",
   "header": {
       "type": "text",
-      "text": "Preguntas frecuentes"
+      "text": "Service24"
+  },
+  "body": {
+    "text": "Preguntas frecuentes"
   },
   "action": {
       "button": "Seleccionar",
@@ -332,13 +335,13 @@ const frecuentes={
               "rows": [
                   {
                       "id": "<LIST_SECTION_1_ROW_1_ID>",
-                      "title": "<SECTION_1_ROW_1_TITLE>",
-                      "description": "¿Qué es Service24?"
+                      "title": "¿Qué es Service24?",
+                      "description":"La App de todos los profesionales"
                   },
                   {
                       "id": "<LIST_SECTION_1_ROW_2_ID>",
-                      "title": "<SECTION_1_ROW_2_TITLE>",
-                      "description": "¿Cómo encontrar proveedores de servicio?"
+                      "title": "¿Buscar proveedores?",
+                      "description":"Como encontrar un proveedor de servicio"
                   }
               ]
           }
