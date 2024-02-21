@@ -96,7 +96,7 @@ async function calldialogflow(text,from){
     }
     else{    
         let responses = payload.fulfillmentMessages;
-        console.log(responses)
+        console.log(responses.text.text)
         for (const response of responses) {
              sendMessageToWhatsapp(client, message, response);
         }
