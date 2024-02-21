@@ -175,12 +175,7 @@ function sendMessageToWhatsappCategorias( from, response) {
       },
       "action": {
           "button": "Ver",
-          "sections": [
-              {
-                  "title": "Selecciona una opción:",
-                  "rows": lista
-              }
-          ]
+          "sections": lista
       }
     };
 
