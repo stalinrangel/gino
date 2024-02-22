@@ -73,7 +73,7 @@ router.post('/', function(req, res, next) {
      res.status(200).json(from);
     } catch(error){
       console.log(error);
-      res.status(500).json(error);
+      res.status(200).json(error);
     }
 });
 
