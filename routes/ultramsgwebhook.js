@@ -43,7 +43,7 @@ router.post('/', function(req, res, next) {
         console.log(req.body.entry[0].changes[0].value.messages[0].interactive.list_reply.description)
         let id=req.body.entry[0].changes[0].value.messages[0].interactive.button_reply.description;
         const numeroEncontrado = id.match(/ID:\s*(\d+)/);
-        if (numeroEncontrado) {
+        if (true) {
           console.log('numeroEncontrado'+numeroEncontrado[1]); // Esto imprimirá el número encontrado después de "ID: "
           console.log('id'+numeroEncontrado[0]);
         } else {
