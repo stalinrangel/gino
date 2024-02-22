@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
      // print all response
-     
+  try{   
      console.log(req.body.entry[0].changes[0].value); 
 
 
@@ -67,11 +67,14 @@ router.post('/', function(req, res, next) {
       calldialogflow(message,from);
       //res.status(200).send('Exito');
      }else if (req.body.entry[0].changes[0].value.statuses) {
-      r//es.status(200).send('Exito');
+      //res.status(200).send('Exito');
      } 
      
      res.status(200).json(from);
-    
+    } catch(error){
+      console.log(error);
+      res.status(500).json(error);
+    }
 });
 
 
