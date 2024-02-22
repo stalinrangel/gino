@@ -47,7 +47,7 @@ router.post('/', function(req, res, next) {
           console.log('numeroEncontrado'+numeroEncontrado[1]); // Esto imprimirá el número encontrado después de "ID: "
           console.log('id'+numeroEncontrado[0]);
 
-          const resultado=numeroEncontrado[0].split("ID:");
+          const resultado=numeroEncontrado[0].split(":");
           console.log(resultado); 
         } else {
           console.log('No se encontró ningún número después de "ID: " en la cadena');
