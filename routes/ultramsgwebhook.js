@@ -44,11 +44,12 @@ router.post('/', function(req, res, next) {
         let id=req.body.entry[0].changes[0].value.messages[0].interactive.list_reply.description;
         const numeroEncontrado = id.match(/ID:\s*(\d+)/);
         if (numeroEncontrado) {
-          console.log('numeroEncontrado'+numeroEncontrado[1]); // Esto imprimirá el número encontrado después de "ID: "
-          console.log('id'+numeroEncontrado[0]);
+          
 
           const resultado=numeroEncontrado[0].split(":");
-          console.log(resultado); 
+          if(resultado[0]=='ID'){
+            sendMessageToWhatsappProveedor(from,numeroEncontrado[1]);
+          } 
         } else {
           console.log('No se encontró ningún número después de "ID: " en la cadena');
         }
@@ -216,10 +217,10 @@ function sendMessageToWhatsappCategorias( from, response) {
     });
   }
 
-  function sendMessageToWhatsappProveedor(from, url) {
+  function sendMessageToWhatsappProveedor(from, id) {
     console.log(from);
     let hola=opcion;
-
+    let url='https://service24.app/detail-provider/'+id
     const options={
       method: 'POST',
       url: 'https://graph.facebook.com/v18.0/216885471516427/messages',
