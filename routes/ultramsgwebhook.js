@@ -49,6 +49,7 @@ router.post('/', function(req, res, next) {
           const resultado=numeroEncontrado[0].split(":");
           if(resultado[0]=='ID'){
             sendMessageToWhatsappProveedor(from,numeroEncontrado[1]);
+            enviarOpcion(from,'Para ver a tu proveedor presiona en el siguiente link: ');
           } 
         } else {
           console.log('No se encontró ningún número después de "ID: " en la cadena');
@@ -234,7 +235,7 @@ function sendMessageToWhatsappCategorias( from, response) {
         "to": from,
         "type": "text",
         "text": { // the text object
-          "preview_url": false,
+          "preview_url": true,
           "body": url
         }
       }
