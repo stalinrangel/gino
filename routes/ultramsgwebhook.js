@@ -257,6 +257,7 @@ function sendMessageToWhatsappCategorias( from, response) {
   function sendMessageToWhatsappProveedor2(from, url, descripcion) {
     console.log(from);
 
+   
     const options={
       method: 'POST',
       url: 'https://graph.facebook.com/v18.0/216885471516427/messages',
@@ -272,9 +273,8 @@ function sendMessageToWhatsappCategorias( from, response) {
         "interactive": {
           "type": "cta_url",
       
-          /* Header optional */
-          "header": {
-            "type": "text",
+          
+          "body": {
             "text": descripcion
           },
           "action": {
