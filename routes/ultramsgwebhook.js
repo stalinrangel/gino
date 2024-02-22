@@ -278,9 +278,6 @@ function sendMessageToWhatsappCategorias( from, response) {
             "type": "text",
             "text": descripcion
           },
-          "body": {
-            "text": descripcion
-          },
           "action": {
             "name": "cta_url",
             "parameters": {
