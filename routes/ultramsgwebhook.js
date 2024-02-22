@@ -234,7 +234,7 @@ function sendMessageToWhatsappCategorias( from, response) {
         "to": from,
         "type": "text",
         "text": { // the text object
-          "preview_url": true,
+          "preview_url": false,
           "body": url
         }
       }
