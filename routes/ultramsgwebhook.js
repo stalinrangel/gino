@@ -65,7 +65,7 @@ router.post('/', function(req, res, next) {
       console.log(from) ;
       calldialogflow(message,from);
       res.status(200).send('Exito');
-     }else if (!req.body.entry[0].changes[0].value.messages) {
+     }else if (req.body.entry[0].changes[0].value.statuses) {
       res.status(200).send('Exito');
      } 
      
