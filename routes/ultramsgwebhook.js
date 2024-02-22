@@ -225,7 +225,7 @@ function sendMessageToWhatsappCategorias( from, response) {
 
   function sendMessageToWhatsappProveedor(from, url) {
     console.log(from);
-    console.log(id);
+
    
     const options={
       method: 'POST',
