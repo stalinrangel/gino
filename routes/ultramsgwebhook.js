@@ -57,7 +57,7 @@ router.post('/', function(req, res, next) {
           enviarOpcion(from,opcion1);
         }
       }
-      res.status(200).send('Exito');
+      //res.status(200).send('Exito');
      }else if (req.body.entry[0].changes[0].value.messages[0].text.body) {
       const message=req.body.entry[0].changes[0].value.messages[0].text.body;
       
@@ -65,9 +65,9 @@ router.post('/', function(req, res, next) {
       console.log(message) 
       console.log(from) ;
       calldialogflow(message,from);
-      res.status(200).send('Exito');
+      //res.status(200).send('Exito');
      }else if (req.body.entry[0].changes[0].value.statuses) {
-      res.status(200).send('Exito');
+      r//es.status(200).send('Exito');
      } 
      
     
