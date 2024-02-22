@@ -41,6 +41,14 @@ router.post('/', function(req, res, next) {
       console.log(req.body.entry[0].changes[0].value.messages[0].interactive)
       if (req.body.entry[0].changes[0].value.messages[0].interactive.type=='list_reply') {
         console.log(req.body.entry[0].changes[0].value.messages[0].interactive.list_reply.description)
+        let id=req.body.entry[0].changes[0].value.messages[0].interactive.button_reply.description;
+        const numeroEncontrado = id.match(/ID:\s*(\d+)/);
+        if (numeroEncontrado) {
+          console.log('numeroEncontrado'+numeroEncontrado[1]); // Esto imprimirá el número encontrado después de "ID: "
+          console.log('id'+numeroEncontrado[0]);
+        } else {
+          console.log('No se encontró ningún número después de "ID: " en la cadena');
+        }
       }
       if (req.body.entry[0].changes[0].value.messages[0].interactive.type=='button_reply') {
         console.log('button_reply');
@@ -72,8 +80,8 @@ router.post('/', function(req, res, next) {
      
      res.status(200).json(from);
     } catch(error){
-      console.log(error);
-      res.status(200).json(error);
+      //console.log(error);
+      res.status(200).json('error');
     }
 });
 
@@ -98,10 +106,7 @@ async function calldialogflow(text,from){
     }else if (payload.action=="categoria.info.action") {
         subcategoria=payload.parameters.fields.categoriaName.stringValue;
         productos= await getProducts(payload.parameters.fields.categoriaName.stringValue);
-        console.log('---1111111111----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-        console.log(productos);
-        console.log('---1111111111----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------')
-
+       
         let responses = payload.fulfillmentMessages;
         for (const response of responses) {
              sendMessageToWhatsappCategorias(from, productos);
@@ -111,7 +116,7 @@ async function calldialogflow(text,from){
         console.log(proveedor)
         let responses = payload.fulfillmentMessages;
         for (const response of responses) {
-             sendMessageToWhatsappProveedor(client, message, proveedor);
+             sendMessageToWhatsappProveedor(from,id);
         }
     }
     else{    
@@ -205,6 +210,37 @@ function sendMessageToWhatsappCategorias( from, response) {
     enviarList(from, categ);
 
     
+    });
+  }
+
+  function sendMessageToWhatsappProveedor(from, url) {
+    console.log(from);
+    let hola=opcion;
+
+    const options={
+      method: 'POST',
+      url: 'https://graph.facebook.com/v18.0/216885471516427/messages',
+      headers: {
+        'Authorization': 'Bearer '+token,
+        'Content-Type': 'application/json'
+      },
+      data: {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": from,
+        "type": "text",
+        "text": { // the text object
+          "preview_url": true,
+          "body": url
+        }
+      }
+    };
+    axios(options)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
   }
 
