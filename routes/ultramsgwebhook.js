@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
      // print all response
-     res.status(200);
+     res.status(200).send();
      console.log(req.body.entry[0].changes[0].value); 
 
 
