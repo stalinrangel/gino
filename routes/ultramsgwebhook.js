@@ -105,7 +105,7 @@ async function calldialogflow(text,from){
     }else if(payload.action=="frecuentes.action"){
       
         //enviarTextoUrl(text);
-        enviarList(from,frecuentes);
+        awaitenviarList(from,frecuentes);
         //enviarButtom(text);
     }else if (payload.action=="categoria.info.action") {
         subcategoria=payload.parameters.fields.categoriaName.stringValue;
@@ -113,14 +113,14 @@ async function calldialogflow(text,from){
        
         let responses = payload.fulfillmentMessages;
         for (const response of responses) {
-             sendMessageToWhatsappCategorias(from, productos);
+          await sendMessageToWhatsappCategorias(from, productos);
         }
     }else if (payload.action=="proveedor.info.action") {
         proveedor= getProveedor(payload.parameters.fields.number.numberValue);
         console.log(proveedor)
         let responses = payload.fulfillmentMessages;
         for (const response of responses) {
-             sendMessageToWhatsappProveedor(from,id);
+          await sendMessageToWhatsappProveedor(from,id);
         }
     }
     else{    
@@ -219,7 +219,7 @@ function sendMessageToWhatsappCategorias( from, response) {
 
   function sendMessageToWhatsappProveedor(from, id) {
     console.log(from);
-    let hola=opcion;
+    console.log(id);
     let url='https://service24.app/detail-provider/'+id
     const options={
       method: 'POST',
