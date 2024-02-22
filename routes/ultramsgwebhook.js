@@ -48,11 +48,15 @@ router.post('/', function(req, res, next) {
 
           const resultado=numeroEncontrado[0].split(":");
           if(resultado[0]=='ID'){
-            sendMessageToWhatsappProveedor(from,numeroEncontrado[1]);
             enviarOpcion(from,'Para ver a tu proveedor presiona en el siguiente link: ');
+            let url='https://service24.app/detail-provider/'+numeroEncontrado[1];
+            sendMessageToWhatsappProveedor(from,url);
+            
           } 
         } else {
+          let url='https://service24es.com/FAQ/';
           console.log('No se encontró ningún número después de "ID: " en la cadena');
+          sendMessageToWhatsappProveedor(from,url);
         }
       }
       if (req.body.entry[0].changes[0].value.messages[0].interactive.type=='button_reply') {
@@ -218,10 +222,10 @@ function sendMessageToWhatsappCategorias( from, response) {
     });
   }
 
-  function sendMessageToWhatsappProveedor(from, id) {
+  function sendMessageToWhatsappProveedor(from, url) {
     console.log(from);
     console.log(id);
-    let url='https://service24.app/detail-provider/'+id
+   
     const options={
       method: 'POST',
       url: 'https://graph.facebook.com/v18.0/216885471516427/messages',
