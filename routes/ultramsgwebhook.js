@@ -266,21 +266,27 @@ function sendMessageToWhatsappCategorias( from, response) {
         'Content-Type': 'application/json'
       },
       data: {
-        "type": "cta_url",
-    
-        /* Header optional */
-        "header": {
-          "type": "text",
-          "text": descripcion
-        },
-        "body": {
-          "text": descripcion
-        },
-        "action": {
-          "name": "cta_url",
-          "parameters": {
-            "display_text": "Pulsa aqui:",
-            "url": url
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": from,
+        "type": "interactive",
+        "interactive": {
+          "type": "cta_url",
+      
+          /* Header optional */
+          "header": {
+            "type": "text",
+            "text": descripcion
+          },
+          "body": {
+            "text": descripcion
+          },
+          "action": {
+            "name": "cta_url",
+            "parameters": {
+              "display_text": "Pulsa aqui:",
+              "url": url
+            }
           }
         }
       }
