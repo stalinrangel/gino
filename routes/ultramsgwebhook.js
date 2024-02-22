@@ -50,7 +50,7 @@ router.post('/', function(req, res, next) {
           if(resultado[0]=='ID'){
             enviarOpcion(from,'Para ver a tu proveedor presiona en el siguiente link: ');
             let url='https://service24.app/detail-provider/'+numeroEncontrado[1];
-            sendMessageToWhatsappProveedor(from,url);
+            sendMessageToWhatsappProveedor(from,url,id);
             
           } 
         } else {
@@ -242,6 +242,46 @@ function sendMessageToWhatsappCategorias( from, response) {
         "text": { // the text object
           "preview_url": true,
           "body": url
+        }
+      }
+    };
+    axios(options)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  function sendMessageToWhatsappProveedor2(from, url, descripcion) {
+    console.log(from);
+
+   
+    const options={
+      method: 'POST',
+      url: 'https://graph.facebook.com/v18.0/216885471516427/messages',
+      headers: {
+        'Authorization': 'Bearer '+token,
+        'Content-Type': 'application/json'
+      },
+      data: {
+        "type": "cta_url",
+    
+        /* Header optional */
+        "header": {
+          "type": "text",
+          "text": descripcion
+        },
+        "body": {
+          "text": descripcion
+        },
+        "action": {
+          "name": "cta_url",
+          "parameters": {
+            "display_text": "Pulsa aqui:",
+            "url": url
+          }
         }
       }
     };
