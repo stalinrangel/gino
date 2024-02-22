@@ -50,7 +50,7 @@ router.post('/', function(req, res, next) {
           if(resultado[0]=='ID'){
             enviarOpcion(from,'Para ver a tu proveedor presiona en el siguiente link: ');
             let url='https://service24.app/detail-provider/'+numeroEncontrado[1];
-            sendMessageToWhatsappProveedor(from,url,id);
+            sendMessageToWhatsappProveedor2(from,url,id);
             
           } 
         } else {
