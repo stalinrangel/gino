@@ -56,6 +56,7 @@ router.post('/', function(req, res, next) {
         } else {
           let url='https://service24es.com/FAQ/';
           console.log('No se encontró ningún número después de "ID: " en la cadena');
+          enviarOpcion(from,'Pulsa en el siguiente link para ir la seccion FAQ: ');
           sendMessageToWhatsappProveedor(from,url);
         }
       }
