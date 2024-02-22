@@ -56,7 +56,24 @@ router.post('/', function(req, res, next) {
         } else {
           let url='https://service24es.com/FAQ/';
           console.log('No se encontró ningún número después de "ID: " en la cadena');
-          enviarOpcion(from,'Pulsa en el siguiente link para ir la seccion FAQ: ');
+
+          if (id=="La App de todos los profesionales") {
+            enviarOpcion(from,'Service24 es una aplicación que conecta a proveedores de servicios y comercios con clientes. Ofrecemos más de 200 rubros en los que seguro está el tuyo!');
+          }
+          if (id=="Como encontrar un proveedor de servicio") {
+            enviarOpcion(from,'Es muy fácil solo descarga nuestra App en: https://service24.app/links/');
+          }
+          if (id=="Qué tipos de servicios ofrecen la App") {
+            enviarOpcion(from,'Todo tipo de servicios profesionales y demás que te puedas imaginar!');
+          }
+          if (id=="¿Cómo contactar a un proveedor de servicio?") {
+            enviarOpcion(from,'Desde el whatsapp puedes preguntar y conseguir el servicio que estas buscando o desde nuestra App de clientes.');
+          }
+          if (id=="¿Cómo puedo convertirme en un proveedor de servicio?") {
+            enviarOpcion(from,'Descarga nuestra App de proveedores en: https://service24.app/links/. Selecciona el botón “Regístrate aquí”, te solicitará una serie de datos que debes completar para comenzar a crear tu usuario, al finalizar clickea en “Registrarse”.');
+          }
+
+          enviarOpcion(from,'Para mas informacion ve a la seccion FAQ: ');
           sendMessageToWhatsappProveedor(from,url);
         }
       }
@@ -273,14 +290,18 @@ function sendMessageToWhatsappCategorias( from, response) {
         "interactive": {
           "type": "cta_url",
       
-          
+          /* Header optional */
+          "header": {
+            "type": "text",
+            "text": "Aca puedes ver a tu proveedor"
+          },
           "body": {
             "text": descripcion
           },
           "action": {
             "name": "cta_url",
             "parameters": {
-              "display_text": "Pulsa aqui:",
+              "display_text": "Ver aquí!",
               "url": url
             }
           }
