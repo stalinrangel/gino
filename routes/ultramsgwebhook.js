@@ -216,29 +216,32 @@ function sendMessageToWhatsappCategorias( from, response) {
         
     }
     
-    
+    if (lista.length==0) {
+      let text="Lo sentimos, en este momento no contamos con las opciones que estás buscando. Te recomendamos probar a buscar en otras profesiones o servicios.";
+      enviarTexto(text,from); 
+    }else{
 
-    const categ={
-      "type": "list",
-      "header": {
-          "type": "text",
-          "text": "Service24"
-      },
-      "body": {
-        "text": "Aquí te mostramos los proveedores disponibles en "+subcategoria+":"
-      },
-      "action": {
-          "button": "Ver",
-          "sections": lista
-      }
-    };
+      const categ={
+        "type": "list",
+        "header": {
+            "type": "text",
+            "text": "Service24"
+        },
+        "body": {
+          "text": "Aquí te mostramos los proveedores disponibles en "+subcategoria+":"
+        },
+        "action": {
+            "button": "Ver",
+            "sections": lista
+        }
+      };
 
-    console.log(lista);
-    
+      console.log(lista);
+      
 
-    enviarList(from, categ);
+      enviarList(from, categ);
 
-    
+    }
     });
   }
 
