@@ -162,7 +162,9 @@ async function calldialogflow(text,from){
 
 function getProducts(categoria){
     return new Promise((resolve, reject) => {
-        axios.get('https://service24.app/apii/public/subcategorias_bot/'+categoria)
+      axios.post('https://service24.app/apii/public/subcategorias_bot', {
+          categoria: categoria
+      })
         .then((response) => {
          
            console.log(response.data);
