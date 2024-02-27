@@ -210,7 +210,7 @@ function sendMessageToWhatsappCategorias( from, response) {
             listap.push({
               "id": response[i].productos[j].id,
               "title": titleCorta,
-              "description": titleCorta
+              "description": descripcionCorta
             });
         }
         if (response[i].productos.length>0) {
