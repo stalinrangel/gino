@@ -204,18 +204,20 @@ function sendMessageToWhatsappCategorias( from, response) {
             response[i].productos[j].title='Proveedor: ' + response[i].productos[j].nombre;
             response[i].productos[j].description='ID: ' +response[i].productos[j].id + ' - ' +response[i].productos[j].descripcion;
             let descripcionCompleta = 'ID: ' + response[i].productos[j].id + ' - ' + response[i].productos[j].descripcion;
-            let descripcionCorta = descripcionCompleta.length > 6 ? descripcionCompleta.substring(0, 6) + '...' : descripcionCompleta;
-            let titleCompleta = response[i].productos[j].nombre+' - ';
-            let titleCorta = titleCompleta.length > 9 ? titleCompleta.substring(0, 9) + '...' : titleCompleta;
+            let descripcionCorta = descripcionCompleta.length > 60 ? descripcionCompleta.substring(0, 60) + '...' : descripcionCompleta;
+            let titleCompleta = response[i].productos[j].nombre;
+            let titleCorta = titleCompleta.length > 19 ? titleCompleta.substring(0, 19) + '...' : titleCompleta;
+            let title2Completa = response[i].productos[j].nombre;
+            let title2Corta = title2Completa.length > 19 ? title2Completa.substring(0, 19) + '...' : title2Completa;
             listap.push({
               "id": response[i].productos[j].id,
-              "title": descripcionCorta,
+              "title": titleCorta,
               "description": descripcionCorta
             });
         }
         if (response[i].productos.length>0) {
             lista.push({
-                "title": response[i].nombre,
+                "title": title2Corta,
                 "rows": listap
             });
             
