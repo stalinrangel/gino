@@ -201,7 +201,7 @@ function sendMessageToWhatsappCategorias( from, response) {
             response[i].productos[j].title='Proveedor: ' + response[i].productos[j].nombre;
             response[i].productos[j].description='ID: ' +response[i].productos[j].id + ' - ' +response[i].productos[j].descripcion;
             let descripcionCompleta = 'ID: ' + response[i].productos[j].id + ' - ' + response[i].productos[j].descripcion;
-            let descripcionCorta = descripcionCompleta.length > 17 ? descripcionCompleta.substring(0, 17) + '...' : descripcionCompleta;
+            let descripcionCorta = descripcionCompleta.length > 60 ? descripcionCompleta.substring(0, 60) + '...' : descripcionCompleta;
             listap.push({
               "id": response[i].productos[j].id,
               "title": response[i].productos[j].nombre,
