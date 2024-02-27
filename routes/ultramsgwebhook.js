@@ -200,10 +200,12 @@ function sendMessageToWhatsappCategorias( from, response) {
         for (let j = 0; j < response[i].productos.length; j++) {
             response[i].productos[j].title='Proveedor: ' + response[i].productos[j].nombre;
             response[i].productos[j].description='ID: ' +response[i].productos[j].id + ' - ' +response[i].productos[j].descripcion;
+            let descripcionCompleta = 'ID: ' + response[i].productos[j].id + ' - ' + response[i].productos[j].descripcion;
+            let descripcionCorta = descripcionCompleta.length > 71 ? descripcionCompleta.substring(0, 71) + '...' : descripcionCompleta;
             listap.push({
               "id": response[i].productos[j].id,
               "title": response[i].productos[j].nombre,
-              "description": 'ID: ' +response[i].productos[j].id + ' - ' +response[i].productos[j].descripcion
+              "description": descripcionCorta
             });
         }
         if (response[i].productos.length>0) {
