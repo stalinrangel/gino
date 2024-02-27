@@ -209,7 +209,7 @@ function sendMessageToWhatsappCategorias( from, response) {
             let titleCorta = titleCompleta.length > 23 ? descripcionCompleta.substring(0, 20) + '...' : descripcionCompleta;
             listap.push({
               "id": response[i].productos[j].id,
-              "title": response[i].productos[j].nombre,
+              "title": titleCorta,
               "description": descripcionCorta
             });
         }
