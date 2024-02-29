@@ -91,7 +91,7 @@ router.post('/', function(req, res, next) {
 
           enviarOpcion(from,opcion1);
         }
-        if (action=='Contactarme con un agente humano') {
+        if (action=='Atención al cliente') {
           let opcion1='Pronto serás contactado por nuestro equipo via Whatsapp!';
 
           enviarOpcion(from,opcion1);
