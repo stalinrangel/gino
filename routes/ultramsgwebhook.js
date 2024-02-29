@@ -92,7 +92,7 @@ router.post('/', function(req, res, next) {
           enviarOpcion(from,opcion1);
         }
         if (action=='Atención al cliente') {
-          let opcion1='Pronto serás contactado por nuestro equipo via Whatsapp! \n Puedes preguntarme si buscas algún servicio. Por ejemplo, pregúntame "busco un taxi", "arreglar el jardin", "quiero aprender a manejar".\n ';
+          let opcion1='Pronto serás contactado por nuestro equipo via Whatsapp! \n\n Si buscas algún servicio pregúntame! por ejemplo: "Busco un taxi", "Arreglar el jardin", "Quiero aprender a manejar", "Reparar una lavadora", "Ayudame a conseguir un abogado" .\n ';
 
           enviarOpcion(from,opcion1);
           let opcion2='Un cliente quiere hablar con soporte, su numero es: +59892925959';
