@@ -91,6 +91,15 @@ router.post('/', function(req, res, next) {
 
           enviarOpcion(from,opcion1);
         }
+        if (action=='Contactarme con un agente humano') {
+          let opcion1='Pronto serás contactado por nuestro equipo via Whatsapp!';
+
+          enviarOpcion(from,opcion1);
+          let opcion2='Un cliente quiere hablar con soporte, su numero es: +59892925959';
+          enviarOpcion('+59892925959',opcion2);
+          let opcion3='https://wa.me/+59892925959';
+          enviarOpcion('+59892925959',opcion3);
+        }
       }
       //res.status(200).send('Exito');
      }else if (req.body.entry[0].changes[0].value.messages[0].text.body) {
@@ -338,7 +347,7 @@ const token='EAAPDHrJXdvwBO3cV8QjkRxS0xYcSREZAsZBH9N75yVHOjhKQtXH5PQvjKKJZBjGXhd
 
 function enviarTexto(mesanje,from){
   
-  let hola='Bienvenido a Service24!\n' +
+  let hola='Hola soy S24 🤖, tu asistente virtual! Bienvenido a Service24 !\n' +
   '\n' +
   'Descarga nuestra app:\n' +
   'https://service24es.com/links\n' +
@@ -467,6 +476,13 @@ function enviarButtom(mesanje,from){
                       "reply": {
                           "id": "<UNIQUE_BUTTON_ID_2>",
                           "title": "Preguntas frecuentes"
+                      }
+                  },
+                  {
+                      "type": "reply",
+                      "reply": {
+                          "id": "<UNIQUE_BUTTON_ID_2>",
+                          "title": "Contactarme con un agente humano"
                       }
                   }
               ]
