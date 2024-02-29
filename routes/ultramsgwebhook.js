@@ -482,7 +482,7 @@ function enviarButtom(mesanje,from){
                       "type": "reply",
                       "reply": {
                           "id": "<UNIQUE_BUTTON_ID_3>",
-                          "title": "Contactarme con un agente humano"
+                          "title": "Atención al cliente"
                       }
                   }
               ]
