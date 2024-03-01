@@ -95,9 +95,9 @@ router.post('/', function(req, res, next) {
           let opcion1='Pronto serás contactado por nuestro equipo via Whatsapp 👩! \n\n Si buscas algún servicio pregúntame 🤖! por ejemplo: "Busco un taxi", "Arreglar el jardin", "Quiero aprender a manejar", "Reparar una lavadora", "Ayudame a conseguir un abogado" .\n ';
 
           enviarOpcion(from,opcion1);
-          let opcion2='Un cliente quiere hablar con soporte, su numero es: +59892925959';
+          let opcion2='Un cliente quiere hablar con soporte, su numero es: '+from;
           enviarOpcion('+59892925959',opcion2);
-          let opcion3='https://wa.me/+59892925959';
+          let opcion3='https://wa.me/'+from;
           enviarOpcion('+59892925959',opcion3);
         }
       }
