@@ -8,7 +8,7 @@ const all = () => {
   };
 
 const listPedidos = (params) => bd('orders')
-  .where('pedido_id.id', '=', params.id) // Asegúrate de calificar 'id' con el nombre de la tabla 'orders'
+  .where('orders.pedido_id', '=', params.id) // Asegúrate de calificar 'id' con el nombre de la tabla 'orders'
   .select('orders.id', 'orders.info', 'orders.company_id', 'orders.user_id', 'orders.estado', 'users.name as user_name', 'company.name as company_name')
   .join('users', 'orders.user_id', 'users.id') 
   .join('company', 'orders.company_id', 'company.id');
