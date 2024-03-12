@@ -9,7 +9,7 @@ const all = () => {
 
 const list= (params) => bd('orders')
     .where(params)
-    .select('id','info','company_id','user_id','estado')
+    .select('orders.id', 'orders.info', 'orders.company_id', 'orders.user_id', 'orders.estado', 'users.name as user_name', 'company.name as company_name')
     .join('users', 'orders.user_id', 'users.id') 
     .join('company', 'orders.company_id', 'company.id');
 
