@@ -8,8 +8,10 @@ const all = () => {
   };
 
 const list= (params) => bd('pedidos')
-    .where(params)
-    .select('id','info','company_id','user_id','estado');
+    .where('pedidos.id', '=', params.id) // Asegúrate de calificar 'id' con el nombre de la tabla 'orders'
+    .select('pedidos.id', 'pedidos.info', 'pedidos.company_id', 'pedidos.user_id', 'pedidos.estado', 'users.name as user_name', 'company.name as company_name')
+    .join('users', 'pedidos.user_id', 'users.id') 
+    .join('company', 'pedidos.company_id', 'company.id');
 
 const create = (obj) => bd('pedidos')
     .insert(obj);
