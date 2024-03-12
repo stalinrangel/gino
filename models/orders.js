@@ -8,10 +8,10 @@ const all = () => {
   };
 
 const list= (params) => bd('orders')
-    .where(params)
     .select('orders.id', 'orders.info', 'orders.company_id', 'orders.user_id', 'orders.estado', 'users.name as user_name', 'company.name as company_name')
     .join('users', 'orders.user_id', 'users.id') 
-    .join('company', 'orders.company_id', 'company.id');
+    .join('company', 'orders.company_id', 'company.id')
+    .where('id',params.id);;
 
 const create = (obj) => bd('orders')
     .insert(obj);
