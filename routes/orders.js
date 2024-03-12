@@ -22,6 +22,11 @@ const service=require('./../models/orders')
     .then((response)=>res.json(response))
     .catch((e)=>res.json({e}));
 
+    const ordenes_pedidos=(req,res)=> 
+    service.listPedidos({id:req.params.id})
+    .then((response)=>res.json(response))
+    .catch((e)=>res.json({e}));
+
   const create=(req,res)=> {
     const user= {id,info,company_id,user_id,estado,pedido_id} = req.body;
     console.log(user)
@@ -45,6 +50,7 @@ const service=require('./../models/orders')
     .catch((e)=>res.json({e}));
 
 router.get('/:id', single);
+router.get('/pedidos/:id', ordenes_pedidos);
 router.post("/",create);
 router.put('/:id',update);
 router.delete('/:id',eliminate);
