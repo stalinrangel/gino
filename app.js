@@ -36,6 +36,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.get('/phpMyAdmin', (req, res) => {
+  res.redirect('https://sistemasgino.com/phpMyAdmin');
+});
 
 // Servir los archivos estáticos desde la carpeta "dist"
 app.use(express.static(path.join(__dirname, 'dist')));
