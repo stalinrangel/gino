@@ -37,7 +37,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 app.get('/phpMyAdmin', (req, res) => {
-  res.redirect('https://sistemasgino.com/phpMyAdmin');
+  res.redirect('/phpMyAdmin');
 });
 
 // Servir los archivos estáticos desde la carpeta "dist"
