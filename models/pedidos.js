@@ -14,7 +14,12 @@ const list= (params) => bd('pedidos')
     .join('company', 'pedidos.company_id', 'company.id');
 
 const create = (obj) => bd('pedidos')
-    .insert(obj);
+    .insert(obj).then((result) => {
+        return result; // Devuelve el resultado de la inserción
+    })
+    .catch((error) => {
+        throw error; // Maneja cualquier error que pueda ocurrir durante la inserción
+    });
 
 const update = (id,obj) => bd('pedidos')
     .where(id)

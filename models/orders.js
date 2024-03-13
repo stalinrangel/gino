@@ -20,7 +20,13 @@ const list = (params) => bd('orders')
   .join('company', 'orders.company_id', 'company.id');
 
 const create = (obj) => bd('orders')
-    .insert(obj);
+    .insert(obj)
+    .then((result) => {
+      return result; // Devuelve el resultado de la inserción
+    })
+    .catch((error) => {
+        throw error; // Maneja cualquier error que pueda ocurrir durante la inserción
+    });
 
 const update = (id,obj) => bd('orders')
     .where(id)
