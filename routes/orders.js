@@ -29,7 +29,7 @@ const service=require('./../models/orders')
 
   const create=(req,res)=> {
     const {  info, company_id, user_id, estado, pedido_id } = req.body;
-    const user = { id, info, company_id, user_id, estado, pedido_id };
+    const user = { info, company_id, user_id, estado, pedido_id };
     console.log(user)
     return service
     .create(user)
