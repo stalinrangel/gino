@@ -28,8 +28,8 @@ const service=require('./../models/pedidos')
     console.log(user)
     return service
     .create(user)
-    .then((response)=>res.json(user))
-    .catch((e)=>res.json({user}));
+    .then((response)=>res.json(response))
+    .catch((e)=>res.json({e}));
   }
   const update=(req,res)=> {
     const { id, info, company_id, user_id, estado, orden_id } = req.body;
