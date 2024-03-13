@@ -23,8 +23,8 @@ const service=require('./../models/pedidos')
     .catch((e)=>res.json({e}));
 
   const create=(req,res)=> {
-    const { id, info, company_id, user_id, estado, pedido_id } = req.body;
-    const user = { id, info, company_id, user_id, estado, pedido_id };
+    const { id, info, company_id, user_id, estado, orden_id } = req.body;
+    const user = { id, info, company_id, user_id, estado, orden_id };
     console.log(user)
     return service
     .create(user)
@@ -32,7 +32,8 @@ const service=require('./../models/pedidos')
     .catch((e)=>res.json({user}));
   }
   const update=(req,res)=> {
-    const user= {id,info,company_id,user_id,estado,orden_id} = req.body;
+    const { id, info, company_id, user_id, estado, orden_id } = req.body;
+    const user = { id, info, company_id, user_id, estado, orden_id };
     console.log(user)
     return service
     .update({id:req.params.id},user)

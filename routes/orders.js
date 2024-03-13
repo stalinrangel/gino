@@ -37,7 +37,8 @@ const service=require('./../models/orders')
     .catch((e)=>res.json({user}));
   }
   const update=(req,res)=> {
-    const user= {id,info,company_id,user_id,estado,pedido_id} = req.body;
+    const { id, info, company_id, user_id, estado, pedido_id } = req.body;
+    const user = { id, info, company_id, user_id, estado, pedido_id };
     console.log(user)
     return service
     .update({id:req.params.id},user)
